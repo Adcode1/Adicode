@@ -27,4 +27,8 @@ public:
  
 
 };
+//Input: heights = [10,6,8,5,11,9]
+//Output: [3,1,2,1,1,0]
+// invariant kya hain -- voh yeh hain ki for a index i we will get a stack which contains element greater than it in increasing order
+//means the maximum at bottom and so on or yehi required tha think carefully baaki toh.
 //https://leetcode.com/problems/number-of-visible-people-in-a-queue/
