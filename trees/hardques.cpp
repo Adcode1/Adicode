@@ -19,8 +19,6 @@ public:
                 ans[i]=cnt-1;
             }
             st.push(heights[i]);
-            
-
         }
         return ans;
     }
