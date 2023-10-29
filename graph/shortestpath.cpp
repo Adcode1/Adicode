@@ -1,8 +1,10 @@
 // for undirected graph // ques link ->https://www.codingninjas.com/studio/problems/shortest-path-in-an-unweighted-graph_981297?leftPanelTab=1&utm_source=youtube&utm_medium=affiliate&utm_campaign=Lovebabbar
+#include<bits./stdc++.h>
 #include<unordered_map>
 #include<vector>
 #include<queue>
-vector<int> shortestPath( vector<pair<int,int>> edges , int n , int m, int s , int t){
+using namespace std;
+vector<int> shortestPath(vector<pair<int,int>> edges , int n , int m, int s , int t){
 	// adj vector
 	unordered_map<int,vector<int>> adj;
 	for(int i=0;i<edges.size();i++){
