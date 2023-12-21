@@ -1,0 +1,1 @@
+// link-->https://codeforces.com/contest/1875/problem/D
