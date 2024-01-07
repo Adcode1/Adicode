@@ -1,4 +1,7 @@
 // ques->https://www.codingninjas.com/studio/problems/printing-longest-increasing-subsequence_8360670?utm_source=striver&utm_medium=website&utm_campaign=a_zcoursetuf&leftPanelTabValue=SUBMISSION
+// ques->https://leetcode.com/problems/number-of-longest-increasing-subsequence/
+//->do this nlogn time..
+
 #include <bits/stdc++.h> 
 using namespace std;
 
