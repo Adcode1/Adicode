@@ -1,5 +1,3 @@
-// ques link->https://codeforces.com/contest/1888/problem/C
-
 #include <bits/stdc++.h>
 typedef long long ll;
 typedef long double ld;
@@ -10,6 +8,8 @@ typedef long double ld;
 #define loop(i, m, n) for (int i = m; i < n; i++)
 #define arep(i, v) for (auto i : v)
 #define all(x) (x).begin(), (x).end()
+#define yeah cout << YES << endl;
+#define noi cout << NO << endl;
 
 using namespace std;
 #include<ext/pb_ds/assoc_container.hpp>
@@ -19,46 +19,31 @@ template<typename T>
 using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
 void solve() {
   // TODO: Implement the solution
-   map<ll,ll> mp;
    ll n;cin>>n;
    ll arr[n];
    for(int i=0;i<n;i++){
-    cin>>arr[i];
+    cin >>arr[i];
    }
-   set<ll> foc,loc;
+   vector<ll> left(n,0);
+   vector<ll> right(n,0);
    for(int i=0;i<n;i++){
-    if(mp[arr[i]]==0){
-        foc.insert(i);
-    }
-    mp[arr[i]]++;
+    left[i]=arr[i]+i;
+    right[i]=arr[i]-i;
    }
-    mp.clear();
-    for(int i=n-1;i>=0;i--){
-        if(mp[arr[i]]==0){
-            loc.insert(i);
-        }
-        mp[arr[i]]++;
-    }
-    ll ans=0;
-    for(int i=0;i<n;i++){
-        if(foc.find(i)!=foc.end()){
-            ans+=loc.size();
-            if(loc.find(i)!=loc.end()){
-                ans--;
-            }
-        }
-        if(loc.find(i)!=loc.end()){
-            loc.erase(i);
-        }
-    }
-    ll so=0;
-    for(int i=0;i<n;i++){
-        if(mp[arr[i]]==1){
-            so++;
-        }
-    }
-    ans+=so;
-    cout << ans << endl;
+   for(int i=1;i<n;i++){
+    left[i]=max(left[i],left[i-1]);
+   }
+   for(int i=n-2;i>=0;i--){
+    right[i]=max(right[i],right[i+1]);
+   }
+   ll curr=0;
+   ll ans=0;
+   for(int i=1;i<n-1;i++){
+        curr=arr[i]+left[i-1]+right[i+1];
+        ans=max(ans,curr);
+   }
+    cout << ans <<endl;
+
 }
 
 int main() {
@@ -71,4 +56,3 @@ int main() {
     solve();
   }
 }
-// hello  hi 
