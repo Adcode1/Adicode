@@ -17,30 +17,21 @@ using namespace std;
 using namespace __gnu_pbds;
 template<typename T>
 using ordered_set = tree<T, null_type, less<T>, rb_tree_tag, tree_order_statistics_node_update>;
+ll mod=1e9+7;
+
+ll fastpow(ll a,ll b){
+    if(b==0)return 1;
+    if(b==1)return a;
+    ll tmp=fastpow(a,b/2);
+    if(b%2==0) return (tmp*tmp)%mod;
+    else return ((a*((tmp*tmp)%mod))%mod)%mod;
+}
 void solve() {
   // TODO: Implement the solution
-  ll n;cin>>n;
-  ll arr[n];
-  ll sum=0;
-  for(ll i=0;i<n;i++){
-    cin>>arr[i];sum+=arr[i];
-  } 
-  vector<vector<ll>> dp(n+1,vector<ll>(n+1,0));
-    // dp[i][j] --> interval i to main max difference from starting person and next person
-    // base case
-    for(ll i=0;i<n;i++){
-        dp[i][i]=arr[i];
-    }
-    // transition
-    for(ll i=n-1;i>=0;i--){
-        for(ll j=i+1;j<n;j++){
-        dp[i][j]=max(arr[i]-dp[i+1][j],arr[j]-dp[i][j-1]);
-        }
-    }
-    ll diff=dp[0][n-1] ;
-    ll ans=(sum+diff)/2;
-    cout << ans << endl;
-
+  ll a;ll b;
+  cin>>a>>b;
+  ll ans=fastpow(a,b);
+  cout << ans << endl;
 }
 
 int main() {
@@ -48,7 +39,7 @@ int main() {
   cin.tie(0);
   cout.tie(0);
   int t;
-  t=1;
+  cin>>t;
   while (t--) {
     solve();
   }
